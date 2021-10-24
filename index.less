@@ -1,0 +1,76 @@
+@import "./styles/base.less";
+
+
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed and saved.
+ *
+ * Add your own CSS or Less to fully customize Atom.
+ * If you are unfamiliar with Less, you can read more about it here:
+ * http://lesscss.org
+ */
+
+
+/*
+ * Examples
+ * (To see them, uncomment and save)
+ */
+
+// style the background color of the tree view
+
+
+@import "syntax-variables";
+@import "colors";
+
+@very-light-gray: #c5c8c6;
+@syntax-text-color: @very-light-gray;
+@syntax-cursor-color: white;
+@syntax-selection-color: lighten(@dark-gray, 10%);
+@syntax-background-color: @very-dark-gray;
+
+@deep-sky-blue: #009ACD;
+@radioactive-blue: #00d0ff;
+@deep-blue: #134973;
+
+
+.tree-view {
+  background-color: #2b2b2b;
+  color: white;
+  font-size: 0.95rem;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  color: white;
+  background-color:#212123;
+}
+
+// style UI elements inside atom-text-editor
+atom-text-editor .cursor {
+  border-color: @deep-blue;
+}
+
+.variable {
+  color: @radioactive-blue;
+  &:hover {
+    text-weight: bold;
+  }
+}
+
+.gutter {
+  background-color: @syntax-gutter-background-color;
+  color: @syntax-gutter-text-color;
+
+  .line-number {
+    &.cursor-line {
+      background-color: @syntax-gutter-background-color-selected;
+      color: lighten(@radioactive-blue, 10%);
+    }
+
+    &.cursor-line-no-selection {
+      color: @deep-sky-blue;
+    }
+  }
+}
